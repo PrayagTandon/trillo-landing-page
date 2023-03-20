@@ -1,0 +1,52 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.hotel-view {
+    // To take the remaining space..
+    flex: 1;
+}
+
+.detail {
+    background-color: var(--color-grey-light-1);
+    font-size: var(--font-default);
+    padding: 4.5rem;
+
+    @include flex-container(row , flex-start , stretch);
+    gap: 4.5rem;
+
+    @include respond-to('md-3') {
+        padding: 2.5rem;
+        gap: 2.5rem;
+    }
+
+    @include respond-to('md-1') {
+        @include flex-container(column , flex-start , center);
+        row-gap: 3rem;
+        padding: 3rem;
+    }
+
+    @include respond-to('sm-2') {
+        padding: 2rem;
+    }
+}
+
+.description {
+    flex: 0 0 60%;
+}
+
+.user-reviews {
+    flex: 1;
+
+    @include flex-container(column , flex-start , center);
+
+    @include respond-to('md-1') {
+        @include flex-container(row , center , center);
+        flex-wrap: wrap;
+        column-gap: 2.5rem;
+    }
+
+    @include respond-to('sm-2') {
+        @include flex-container(column , center , center);
+        row-gap: 1.2rem;
+    }
+}

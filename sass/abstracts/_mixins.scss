@@ -1,0 +1,40 @@
+@mixin flex-container($direction , $justify , $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+$breakpoints: (
+  'sm-1': (max-width: 24em, ),  // ~ 384px
+  'sm-2': (max-width: 30em, ),  // ~ 480px
+  'md-1': (max-width: 38em, ),  // ~ 608px
+  'md-2': (max-width: 49em, ),  // ~ 784px
+  'md-3': (max-width: 56em, ),  // ~ 896px
+  'lg': (max-width: 68em, ),  // ~ 1088px
+  'xl': (max-width: 75em, ),  // ~ 1200px
+  '2xl': (min-width: 100em, ), // 1600px ~
+);
+ 
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+ 
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+ 
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+    (+'Please make sure it is defined in `$breakpoints` map.');
+  }
+}

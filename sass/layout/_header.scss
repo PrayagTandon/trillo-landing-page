@@ -1,0 +1,17 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.header {
+    background-color: var(--color-white);
+    border-bottom: var(--line);
+
+    height: 7rem;
+
+    @include flex-container(row, space-between , center);
+
+    @include respond-to('sm-2') {
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 11rem;
+    }
+}

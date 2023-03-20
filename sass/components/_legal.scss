@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.legal {
+    color: var(--color-grey-dark-3);
+    font-size: var(--font-default);
+    margin: 0 1.5rem 2rem 1.5rem;
+    text-align: center;
+
+    @include respond-to('md-2') {
+        display: none;
+    }
+}

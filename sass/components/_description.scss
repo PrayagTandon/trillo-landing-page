@@ -1,0 +1,119 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.description {
+    padding: 3rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-light-2);
+    color: var(--color-grey-dark-2);
+}
+
+.paragraph {
+    &:not(:last-of-type) {
+        margin-bottom: 2rem;
+    }
+}
+
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    @include flex-container(row , flex-start , center);
+    flex-wrap: wrap;
+    row-gap: .8rem;
+
+    @include respond-to('md-3') {
+        font-size: 1.2rem;
+    }
+
+    @include respond-to('md-1') {
+        font-size: 1.4rem;
+    }
+
+    @include respond-to('sm-2') {
+        font-size: 1.2rem;
+    }
+
+    @include respond-to('sm-1') {
+        @include flex-container(column , center , flex-start);
+        font-size: 1.4rem;
+    }
+
+    &__item {
+        flex: 0 0 50%;
+
+        @include respond-to('md-3') {
+            flex: 0 1 50%;
+        }
+
+       &::before {
+        content: "";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-right: .7rem;
+
+        // OLDER BROWSERS
+        background-image: url(../img/SVG/chevron-thin-right.svg);
+        background-size: cover;
+
+        // FOR NEWER BROWSERS
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/SVG/chevron-thin-right.svg);
+            mask-image: url(../img/SVG/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            background-image: none;
+        }
+       }
+    }
+}
+
+.recommend {
+    @include flex-container(row , space-between , center);
+    color: var(--color-grey-dark-3);
+    font-size: 1.2rem;
+
+    @include respond-to('md-1') {
+        font-size: 1.4rem;
+    }
+
+    @include respond-to('sm-2') {
+        font-size: 1.1rem;
+    }
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+        display: flex;
+        align-items: center;
+
+        &-photo {
+            box-sizing: content-box;
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            border: 3px solid var(--color-white);
+            
+            &:not(:last-child) {
+                margin-right: -2rem;
+            }
+
+            @include respond-to('sm-2') {
+                width: 3rem;
+                height: 3rem;
+
+                &:not(:last-child) {
+                    margin-right: -1.6rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.navbar {
+    background-color: var(--color-grey-dark-1);
+
+    // We need to define the initial width for the navigation
+    flex: 0 0 20%;
+
+    @include flex-container(column , space-between , flex-start);
+
+    @include respond-to('md-2') {
+        width: 100%;
+    }
+}

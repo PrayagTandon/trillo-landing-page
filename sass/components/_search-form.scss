@@ -1,0 +1,61 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.search {
+    flex: 0 1 40%;
+
+    @include flex-container(row , center , center);
+
+    margin-right: 1.5rem;
+
+    @include respond-to('sm-2') {
+        order: 1;
+        flex: 0 1 80%;
+    }
+
+    &__input {
+        border: none;
+        font-family: inherit;
+        font-size: var(--font-default);
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border-radius: 100px;
+        padding: .7rem 2rem;
+        width: 90%;
+        margin-right: -4rem;
+       
+        transition: var(--transition-small);
+
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-dark-3);
+        }
+    }
+
+    &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon {
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-grey-dark-2);
+
+        transition: var(--transition-small);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__input:focus + &__button &__icon {
+        fill: var(--color-grey-dark-1);
+    }
+}

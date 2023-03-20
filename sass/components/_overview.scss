@@ -1,0 +1,81 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.overview {
+    @include flex-container(row , space-between ,center);
+    background-color: var(--color-white);
+    border-bottom: var(--line);
+    font-size: 1.2rem;
+
+    &__stars {
+        margin-right: auto;
+
+        @include flex-container(row , center , center);
+
+        @include respond-to('sm-2') {
+           margin-bottom: .4rem;
+        }
+    }
+
+    &__icon--star ,
+    &__icon--location {
+        height: 2rem;
+        width: 2rem;
+        fill: var(--color-primary);
+
+        @include respond-to('md-1') {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
+
+        @include respond-to('sm-2') {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+    }
+
+    &__location {
+        @include flex-container(row , center , center);
+        gap: .5rem;
+
+        margin-right: 2rem;
+    }
+
+    &__rating {
+        padding: 1rem 2rem;
+        align-self: stretch;
+        background-color: var(--color-primary);
+        color: var(--color-grey-light-1);
+
+        @include flex-container(column , center , center);
+
+        @include respond-to('md-1') {
+            padding: .6rem 1.2rem;
+        }
+
+        @include respond-to('sm-2') {
+            padding: .4rem 1rem;
+        }
+
+        &-average {
+            font-size: 2.2rem;
+
+            @include respond-to('md-1') {
+                font-size: 1.6rem;
+            }
+
+            @include respond-to('sm-2') {
+                font-size: 1.2rem;
+            }
+        }
+
+        &-count {
+            font-size: 1rem;
+
+            @include respond-to('sm-2') {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+

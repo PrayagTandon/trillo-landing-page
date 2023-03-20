@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.gallery {
+    @include flex-container(row , center , center);
+
+    &__photo {
+        display: block;
+        width: 100%;
+    }
+}

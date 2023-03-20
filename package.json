@@ -1,0 +1,17 @@
+{
+  "name": "trillo",
+  "version": "1.0.0",
+  "description": "trillo app landing page",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "prayag tandon",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3",
+    "sass": "^1.59.3"
+  }
+}

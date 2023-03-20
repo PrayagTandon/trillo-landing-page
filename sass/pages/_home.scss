@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.main-container {
+    max-width: 120rem;
+    background-color: var(--color-grey-light-2);
+    margin: 8rem auto;
+    box-shadow: var(--box-shadow-dark);
+    border-radius: var(--border-radius-small);
+    
+    min-height: 50rem;
+
+    @include respond-to('xl') {
+        margin: 0;
+    }
+
+    @include respond-to('lg') {
+        max-width: 100%;
+        width: 100%;
+    }
+}

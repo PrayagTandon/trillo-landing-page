@@ -1,0 +1,79 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.user-nav {
+    align-self: stretch;
+
+    @include flex-container(row , space-between , center);
+    gap: 1rem;
+
+    & > * {
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        transition: var(--transition-small);
+
+        @include flex-container(row , center , center);
+
+        @include respond-to('sm-1') {
+            padding: 0 1rem;
+        }
+    }
+    
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    & > *:hover &__icon {
+        transform: translateY(-.4rem);
+    }
+
+    &__icon-box {
+        position: relative;
+
+        @include flex-container(row , center , center);
+    }
+
+    &__icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        fill: var(--color-grey-dark-2);
+        transition: var(--transition-small);
+    }
+
+    &__notification {
+        font-size: .8rem;
+        color: var(--color-white);
+        background-color: var(--color-primary);
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+
+        @include flex-container(row , center , center);
+
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+
+        @include respond-to('sm-1') {
+            top: .8rem;
+            right: .2rem;
+        }
+    }
+
+    &__user {
+        @include flex-container(row , center , center);
+        gap: 1rem;
+    }
+
+    &__user-photo {
+        height: 4rem;
+        transition: var(--transition-small);
+    }
+
+    &__name {
+        font-size: var(--font-default);
+        color: var(--color-grey-dark-2);
+        transition: var(--transition-small);
+    }
+}

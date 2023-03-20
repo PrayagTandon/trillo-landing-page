@@ -1,0 +1,17 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.header {
+
+    &__logo-box{
+        margin-left: 2rem;
+
+        @include respond-to('sm-2') {
+            margin-right: auto;
+        }
+    }
+
+    &__logo {
+        height: 3rem;
+    }
+}
